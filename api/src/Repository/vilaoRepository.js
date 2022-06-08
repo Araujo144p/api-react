@@ -18,13 +18,5 @@ values (?, ?, ? , ?);
 }
 
 
-export async function listadevilao(){
-    `
-select id_vilao id
-, nm_vilao nome
-, ds_maldades descriçao
-, bt_super_poder descriçao
-from tb_vilao
-    `
-}
+
 

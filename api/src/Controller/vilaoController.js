@@ -5,7 +5,8 @@ const server= Router();
 
 server.post('/vilao', async (req, resp) => {
     try{
-    const resposta = await inserirvilao(vilao)
+        const nome= req.body;
+    const resposta = await inserirvilao(nome)
     resp.send(resposta);
     }catch (err){
         resp.status(401).send({
@@ -18,6 +19,16 @@ server.post('/vilao', async (req, resp) => {
 
 server.get ('/vilao', async (req, resp) =>{
     try{
-        const resposta = await listadevilao();
+        const nome= req.body;
+        const resposta = await listadevilao(nome);
+        resp.send(resposta);
+
     }
-}
+    catch(err){
+        resp.status(401).send({
+            erro:err.message
+        })
+    }
+})
+
+export default server;
