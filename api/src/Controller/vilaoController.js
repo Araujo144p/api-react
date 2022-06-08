@@ -19,8 +19,7 @@ server.post('/vilao', async (req, resp) => {
 
 server.get ('/vilao', async (req, resp) =>{
     try{
-        const nome= req.body;
-        const resposta = await listadevilao(nome);
+        const resposta = await listadevilao();
         resp.send(resposta);
 
     }
