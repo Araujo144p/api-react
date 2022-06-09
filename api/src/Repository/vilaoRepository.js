@@ -9,10 +9,10 @@ export async function inserirvilao( vilao ){
     `
     insert into
 tb_vilao ( nm_vilao, ds_maldades, bt_super_poder)
-values ( 'coringa', 'assalto' , false);
+values ( ?, ? , ?);
     `
 
-    const [resposta] = await con.query(comando, [vilao.nome, vilao.maldade, vilao.super_poder]);
+    const [resposta] = await con.query(comando, [vilao.nome, vilao.maldades, vilao.super_poder]);
     vilao.id= resposta.insertId;
     return vilao; 
 
@@ -25,8 +25,8 @@ export async function listadevilao(){
     select 
 id_vilao   id,
 nm_vilao    nome,
-ds_maldades   descriçao,
-bt_super_poder    boolean
+ds_maldades  maldade,
+bt_super_poder    tem_poder
 from tb_vilao
 
     `
