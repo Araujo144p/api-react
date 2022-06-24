@@ -25,8 +25,8 @@ export async function listadevilao(){
     select 
 id_vilao   id,
 nm_vilao    nome,
-ds_maldades  maldade,
-bt_super_poder    tem_poder
+ds_maldades  maldades,
+bt_super_poder    super_poder
 from tb_vilao
 
     `
