@@ -5,8 +5,8 @@ export default function cadastrar(){
    
     return(
         <main>
-           <Link to='/cadastrar' className='voltar'>cadastrar vilao </Link>
-            <Link to='/consultar' className='consu'>Consultar vilao</Link>
+           <Link to='/cadastrar' >cadastrar vilao </Link>
+           <Link to='/consultar' >Consultar vilao</Link>
         </main>
     );
 }

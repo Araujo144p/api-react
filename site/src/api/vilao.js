@@ -4,10 +4,10 @@ const api = axios.create({
     baseURL: 'http://localhost:5000/'
 }) 
 
-export async function cadastravilao(nome, maldade, super_poder){
+export async function cadastravilao(nome, maldades, super_poder){
     const resposta = await api.post('/vilao',{
         nome: nome,
-        maldade: maldade,
+        maldades: maldades,
         super_poder: super_poder
             
     })

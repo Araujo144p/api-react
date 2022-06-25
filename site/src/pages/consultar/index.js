@@ -1,31 +1,34 @@
-import { cadastravilao } from '../../api/vilao'
-import { Link, useParams } from 'react-router-dom';
-import { useState, } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
-import {ToastContainer, toast} from 'react-toastify'
-
+import {listadevilao} from '../../api/vilao'
+import { useEffect, useState, } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function Index(){
 
-    const [vilao, setVilao] = useState('')
-    const [maldades, setMaldades] = useState('')
-    const [super_poder, setSuper_poder] = useState(false)
-    const [ID, setId] = useState(0)
+    const [vilao, setVilao] = useState([]);
+   
 
-    async function listadevilao(){
+    async function carregarvilao(){
+        const resp = await listadevilao();
+        setVilao(resp);
 
     }
 
+    useEffect(() =>{
+        carregarvilao();
+    }, [])
+
     
     return(
-        <main className="bodylista">
+        <main >
+            <Link to='/' >Voltar</Link>
             
            
-                <div className='tabela'>
+                <div >
                     <table>
                         <thead>
                             <tr>
+                                <th>Identificação</th>
                                 <th>vilao</th>
                                 <th>maldades</th>
                                 <th>super poder</th>
@@ -35,10 +38,10 @@ export default function Index(){
 
                             {vilao.map(item => 
                                 <tr>
-                                    <td>{item.id}</td>
-                                    <td>{item.vilao}</td>
+                                    <td>#{item.id}</td>
+                                    <td>{item.nome}</td>
                                     <td>{item.maldades}</td>
-                                    <td>{item.super_poder}</td>
+                                    <td>{item.super_poder ? 'Sim' : 'Não'}</td>
                                 </tr>
                             )}
 
